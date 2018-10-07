@@ -34,6 +34,7 @@
   To record a sample, press and hold the record button, then hold a sample button
   for the recording duration.
   To play a sample, press and hold the corresponding sample button.
+  To play sample in Reverse Press and Release Reverse Button and then press any sample button
 
   Bit Crushing, Sample Rate Manipulation, Dual Low Pass Filter & High Pass Filter, and Reverse Playback added.
 
