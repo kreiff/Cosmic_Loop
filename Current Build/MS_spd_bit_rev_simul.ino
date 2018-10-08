@@ -22,14 +22,18 @@
   The SRAM is divided into 4 equal parts so that 4 samples can be
   recorded.
 
-  This sketch is designed for use with the DJ Shield but can be used with
-  buttons on a breadboard:
+  This sketch is designed for use with 6 Buttons and 4 Pots:
   Record button = D5
   Sample 0 button = D6
   Sample 1 button = D4
   Sample 2 button = D3
   Sample 3 button = D2
   Reverse button = D8
+  
+  Bit Resolution Pot = A1
+  Sample Rate / Playback Speed Pot = A0
+  Lowpass Filter Cutoff = A2
+  Highpass Filter Cutoff = A3
 
   To record a sample, press and hold the record button, then hold a sample button
   for the recording duration.
