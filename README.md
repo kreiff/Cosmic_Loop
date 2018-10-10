@@ -2,7 +2,7 @@
 Arduino based 12-bit Sampler. Includes the following features:
 - 4 Samples with variable length between 3-15 seconds depending on sample rate
 - Bit Crushing on Sample & Passthrough
-- Variable Sample Rate of Samples & Passthrough (Max Sample Rate 16Khz)
+- Variable Sample Rate of Samples & Passthrough (Max Sample Rate 10.025Khz)
 - Variable Playback Speed of Samples
 - Dual Lowpass & Highpass filter
 - Reverse Playback
@@ -15,8 +15,6 @@ Current build requires an interface with 6 Buttons (connected as Digital Inputs)
 
 Known Issues in current build:
 - Highpass Filter does not effect Reversed Samples
-- Reverse Button needs debouncing / smoothing
-- Reverse Playback triggering gets mushy / slow after 1-2 O'clock on the Sample Rate pot.
 
 Additional Features in the Queue:
 - Simultaneous Sample Playback
