@@ -3,6 +3,13 @@
   Copyright (C) 2013 nootropic design, LLC
   All rights reserved.
 
+  Cosmic Looper code is largely modified and combined example code
+  from the NooTropic Design Audio Hacker Project - though some
+  refactors are my own design.
+
+  Special thanks to E. Scott Eastman & David Lowenfels for mentorship
+  and guidance.
+
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -22,8 +29,7 @@
   The SRAM is divided into 4 equal parts so that 4 samples can be
   recorded.
 
-  This sketch is designed for use with the DJ Shield but can be used with
-  buttons on a breadboard:
+  This sketch is designed for 6 Arcade Buttons & 4 10k potentiometers, button pinout is:
   Record button = D5
   Sample 0 button = D6
   Sample 1 button = D4
@@ -36,13 +42,16 @@
   To play a sample, press and hold the corresponding sample button.
   To play a smaple in reverse tap (don't hold) the reverse button either before playing a sample or while the sample is playing.
 
-  Bit Crushing, Sample Rate Manipulation, Dual Low Pass Filter & High Pass Filter, and Reverse Playback added.         
+  Effect Pot Assignments are:
+  Sample Rate: A0
+  Bit Crushing: A1
+  Low Pass Filter Cutoff: A2
+  High Pass Fiter Cutoff: A3
+
+  Both filter Resonances are static at 150         
 
   Input is sampled at 16 kHz and reproduced on the output.
   Recordings sampled at 16 kHz and stored to SRAM.
-
-  See Audio Hacker project page for details.
-  http://nootropicdesign.com/audiohacker/projects.html
  */
 
 #include <EEPROM.h>
@@ -437,7 +446,6 @@ void loop() {
      playbackDirectionStart[2] = 0;
      playbackDirectionStart[3] = 65535;
      }
-  
 }
 
 ISR(TIMER1_OVF_vect) {
