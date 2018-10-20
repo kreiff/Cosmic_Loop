@@ -20,4 +20,5 @@ Additional Features in the Queue:
   - Latching, 1-shot, and momentary button response for sample playback
   - Input / Passthrough Mute
   - Three State effect options (Effect on Sample Only, Effect on Passthrough & Sample, Effect Off) - for filter, grain delay, etc.
+- Input threshold for recording.  
 - Simultaneous Sample Playback
