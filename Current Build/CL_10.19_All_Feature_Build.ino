@@ -36,11 +36,13 @@
   Sample 2 button = D3
   Sample 3 button = D2
   Reverse button = D1
+  Grain Delay button = D0
 
   To record a sample, press and hold the record button, then hold a sample button
   for the recording duration.
   To play a sample, press and hold the corresponding sample button.
-  To play a smaple in reverse tap to latch reverse mode, hold for momentary reverse playback.
+  To play a sample in reverse tap to latch reverse mode, hold for momentary reverse playback.
+  To turn on Grain Delay tap the button connected to D0, hold for momentary Grain playback.
 
   Effect Pot Assignments are:
   Sample Rate: A0
@@ -136,6 +138,7 @@ long HPfeedback;
 int HPbuf0 = 0;
 int HPbuf1 = 0;
 
+//Grain Delay variables
 unsigned int nSamplesToPlay = 2048;
 volatile unsigned int nSamplesPlayed = 0;
 unsigned int grainRead;
@@ -144,6 +147,7 @@ byte stretch = 1;
 volatile long grainAddress = 0;
 volatile byte grainAddressChipNumber = 0;
 
+//Read & Write Buffer & Mode Variables
 volatile byte mode = PASSTHROUGH;
 unsigned long lastDebugPrint = 0;
 unsigned int readBuf[2];
@@ -163,7 +167,7 @@ void setup() {
 #ifdef DEBUG
   Serial.begin(115200);        // connect to the serial port
 #endif
-
+ 
   recordingSampleRate = 16000;
   passthroughSampleRate = 16000;
   timer1Start = UINT16_MAX - (F_CPU / passthroughSampleRate);
@@ -666,8 +670,10 @@ ISR(TIMER1_OVF_vect) {
       unsigned int passbuff = AudioHacker.readADC();
       AudioHacker.readSRAMPacked(addressChipNumber, address, readBuf);
       signal = readBuf[0];
+      //mixing passthrough buffer with sample signal
       mix = (passbuff - 2048) + (signal - 2048);
-      
+
+ //Grain delay interupt implementation     
  if (grainButton == BUTTON_ON){
       nSamplesPlayed+=3;
       if (nSamplesPlayed >= nSamplesToPlay) {
@@ -682,7 +688,7 @@ ISR(TIMER1_OVF_vect) {
       return;
     }
  }
-
+     //prevents playback clipping when mixing passthrough with samples
       if (mix < -2048) {
       mix = -2048;
     } else {
@@ -740,6 +746,7 @@ ISR(TIMER1_OVF_vect) {
   mix = highPass2 + 2048;
  
   playbackBuf = mix;
+  //Interrupt bit crush implementation (Move before filter for filtered distortion)
   playbackBuf &= mask;
 
 #ifdef DEBUG
