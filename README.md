@@ -21,3 +21,8 @@ Additional Features in the Queue:
   - Three State effect options (Effect on Sample Only, Effect on Passthrough & Sample, Effect Off) - for filter, grain delay, etc.
 - Input threshold for recording.  
 - Simultaneous Sample Playback
+
+Additional notes:
+-If you're using the Audio Hacker shield and an Arudino Uno be aware that only 7 Digital pins and 6 Analog pins are available as inputs / outputs. Digital pin 7-13 are used by the shield to communicate with the ADC, DAC, and SRAM chips. If you're adding additional UX improvements be sure to make sure you're only working with digital pins 0-6.
+-This project uses the TX and RX pins for specific functions. If you're using the Serial Print function to debug your code - you may get odd results / print-outs if the button you're debugging is connected to pins D0 or D1. 
+-As noted above only 7 digital pins are available as inputs / outputs, but you'll notice that there are 8 buttons identified in the wiring diagram - The input / passthrough mute function is hardwired and does not depend on the Arduino or any code to function. It simply grounds the input signal at the bypass switch preventing it from going to the output.
