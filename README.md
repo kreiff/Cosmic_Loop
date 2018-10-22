@@ -1,6 +1,7 @@
 # Cosmic_Looper
 Arduino based 12-bit Sampler. Includes the following features:
 - 4 Samples with variable length between 3-15 seconds depending on sample rate
+- Recording threshold of about -50db for easy sampling of percussive sounds
 - Monophonic playback w/ Passthrough
 - Bit Crushing on Sample & Passthrough
 - Variable Sample Rate of Samples & Passthrough (Max Sample Rate 16Khz)
@@ -20,8 +21,7 @@ Additional Features in the Queue:
 - UX improvements
   - Latching, 1-shot, and momentary button response for sample playback.
   - Three State effect options (Effect on Sample Only, Effect on Passthrough & Sample, Effect Off) - for filter, grain delay, etc.
-- Input threshold for recording.  
-- Simultaneous Sample Playback
+- Simultaneous Sample Playback / Sample Polyphony
 
 Additional notes:
 - If you're using the Audio Hacker shield from Nootropic Design and an Arudino Uno be aware that only 7 Digital pins and 6 Analog pins are available as inputs / outputs. Digital pin 7-13 are used by the shield to communicate with the ADC, DAC, and SRAM chips. If you're adding additional UX improvements be sure to make sure you're only working with digital pins 0-6.
