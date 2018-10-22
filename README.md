@@ -18,6 +18,9 @@ Known issues w/ current build:
 - Grain Delay only plays through 1 loop in Reverse mode and then repeats last grain.
 
 Additional Features in the Queue:
+- Filter on/off via combo button press
+- Freeze mode with variable freeze window
+- Playback envelope for samples
 - UX improvements
   - Latching, 1-shot, and momentary button response for sample playback.
   - Three State effect options (Effect on Sample Only, Effect on Passthrough & Sample, Effect Off) - for filter, grain delay, etc.
