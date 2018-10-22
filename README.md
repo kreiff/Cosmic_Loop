@@ -1,6 +1,7 @@
 # Cosmic_Looper
 Arduino based 12-bit Sampler. Includes the following features:
 - 4 Samples with variable length between 3-15 seconds depending on sample rate
+- Monophonic playback w/ Passthrough
 - Bit Crushing on Sample & Passthrough
 - Variable Sample Rate of Samples & Passthrough (Max Sample Rate 16Khz)
 - Variable Playback Speed of Samples
