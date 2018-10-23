@@ -14,6 +14,8 @@ Based on the Audio Hacker Shield and accompanying Header Files from Nootropic De
 
 Current build requires an interface with 7 Buttons (connected as Digital Inputs) and 6 knobs (connected as analog inputs).
 
+![alt text](https://github.com/kreiff/Cosmic_Loop/blob/master/Hardware/CL_Prototype.jpg)
+
 Known issues w/ current build:
 - Grain Delay only plays through 1 loop in Reverse mode and then repeats last grain.
 
