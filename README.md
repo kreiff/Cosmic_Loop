@@ -1,4 +1,4 @@
-# Cosmic_Looper
+# Cosmic_Loop
 Arduino based 12-bit Sampler. Includes the following features:
 - 4 Samples with variable length between 3-15 seconds depending on sample rate
 - Recording threshold of about -50db for easy sampling of percussive sounds
