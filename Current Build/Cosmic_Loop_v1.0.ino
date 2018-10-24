@@ -3,7 +3,7 @@
   Copyright (C) 2013 nootropic design, LLC
   All rights reserved.
 
-  Cosmic Looper code is largely modified and combined example code
+  Cosmic Loop code is largely modified and combined example code
   from the NooTropic Design Audio Hacker Project - though some
   refactors are my own design.
 
