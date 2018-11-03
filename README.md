@@ -9,6 +9,7 @@ Arduino based 12-bit Sampler. Includes the following features:
 - Dual Lowpass & Highpass filter
 - Reverse Playback
 - Grain Delay
+- Freeze mode added in BETA build
 
 Based on the Audio Hacker Shield and accompanying Header Files from Nootropic Design. Inspiration from DigDugDIY who I believe also used the Nootropic Design audio shield and code as the basis of his "Lofi Dreams" sampler.
 
@@ -17,12 +18,14 @@ Current build requires an interface with 7 Buttons (connected as Digital Inputs)
 ![alt text](https://github.com/kreiff/Cosmic_Loop/blob/master/Hardware/CL_Prototype.jpg)
 
 Additional Features in the Queue:
-- Freeze mode with variable freeze window
 - Playback envelope for samples
 - UX improvements
   - Latching, 1-shot, and momentary button response for sample playback.
   - Three State effect options (Effect on Sample Only, Effect on Passthrough & Sample, Effect Off) - for filter, grain delay, etc.
 - Simultaneous Sample Playback / Sample Polyphony
+
+Known issues in BETA:
+ - Toggling filter on / off while in freeze mode on rare occasions will change playback position.
 
 Additional notes:
 - If you're using the Audio Hacker shield from Nootropic Design and an Arudino Uno be aware that only 7 Digital pins and 6 Analog pins are available as inputs / outputs. Digital pin 7-13 are used by the shield to communicate with the ADC, DAC, and SRAM chips. If you're adding additional UX improvements be sure to make sure you're only working with digital pins 0-6. You can alternatively use a shift register to add additional digital inputs (See NooTropic's EX-Expander Shield as an example).
