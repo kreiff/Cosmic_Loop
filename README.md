@@ -17,7 +17,6 @@ Current build requires an interface with 7 Buttons (connected as Digital Inputs)
 ![alt text](https://github.com/kreiff/Cosmic_Loop/blob/master/Hardware/CL_Prototype.jpg)
 
 Additional Features in the Queue:
-- Filter on/off via combo button press
 - Freeze mode with variable freeze window
 - Playback envelope for samples
 - UX improvements
