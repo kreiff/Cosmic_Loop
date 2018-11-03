@@ -26,7 +26,7 @@ Additional Features in the Queue:
 
 Known issues in BETA related to Freeze mode:
  - If a sample button is held, freeze mode is activated and released, and then reverse mode is turned on, and freeze mode is activated and released while in reverse mode, and then reverse mode is turned off - activating freeze mode during forward playback will not freeze the buffer - but will cause a kind of grain delay playback from a random start point.
- -The above issue only occurs if the same sample button is held the whole time - if the button is released at any time all functions work as expected.
+ - The above issue only occurs if the same sample button is held the whole time - if the button is released at any time all functions work as expected.
 
 Additional notes:
 - If you're using the Audio Hacker shield from Nootropic Design and an Arudino Uno be aware that only 7 Digital pins and 6 Analog pins are available as inputs / outputs. Digital pin 7-13 are used by the shield to communicate with the ADC, DAC, and SRAM chips. If you're adding additional UX improvements be sure to make sure you're only working with digital pins 0-6. You can alternatively use a shift register to add additional digital inputs (See NooTropic's EX-Expander Shield as an example).
