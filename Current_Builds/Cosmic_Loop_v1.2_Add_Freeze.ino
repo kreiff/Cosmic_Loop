@@ -45,8 +45,12 @@
   To play a sample, press and hold the corresponding sample button.
   To play a sample in reverse tap to latch reverse mode, hold for momentary reverse playback.
   To turn on Grain Delay tap the button connected to D0, hold for momentary Grain playback.
-  Filter can be turned off an on by pressing the record and reverse buttons simultaneously. This also works in a momentary fashion
-  by holding both buttons and then letting go.
+  
+  Filter can be turned off / on by pressing the record and reverse buttons simultaneously. This also works in a momentary fashion
+  by holding both buttons and then letting go (hold is filter on, let go is filter off).
+  
+  The Playback buffer can be frozen by holding the Record button during playback. The size of the freeze window
+  can be made altered using the Grain Size & Grain Window pots.
 
   Effect Pot Assignments are:
   Sample Rate: A0
