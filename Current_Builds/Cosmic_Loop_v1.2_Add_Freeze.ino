@@ -45,7 +45,7 @@
   To play a sample, press and hold the corresponding sample button.
   To play a sample in reverse tap to latch reverse mode, hold for momentary reverse playback.
   To turn on Grain Delay tap the button connected to D0, hold for momentary Grain playback.
-  
+
   Filter can be turned off / on by pressing the record and reverse buttons simultaneously. This also works in a momentary fashion
   by holding both buttons and then letting go (hold is filter on, let go is filter off).
   
@@ -164,7 +164,8 @@ volatile byte grainAddressChipNumber = 0;
 
 //Freeze Buffer Variables
 int freezeButton = BUTTON_OFF;
-volatile long freezeAddress = 0;
+volatile long freezeAddressReset = 0;
+volatile long freezeBuffer;
 
 //Read & Write Buffer & Mode Variables
 volatile byte mode = PASSTHROUGH;
@@ -282,6 +283,9 @@ void loop() {
     // if the button state has changed:
     if (reading[j] != buttonState[j]) {
         buttonState[j] = reading[j];
+        if (j == 4){
+          freezeAddressReset = address;
+        }
     }
   }
 
@@ -584,11 +588,13 @@ void loop() {
   }
 
   if (mode == PLAYBACK) {
+    //Freeze Buffer On / Off
     if (recordButton == BUTTON_ON && reading[5]!= BUTTON_ON){
     freezeButton = BUTTON_ON;
     }else{
     freezeButton = BUTTON_OFF;
     }
+    
     if (((sample == 0) && (sample0Button == BUTTON_OFF)) ||
         ((sample == 1) && (sample1Button == BUTTON_OFF)) ||
         ((sample == 2) && (sample2Button == BUTTON_OFF)) ||
@@ -631,7 +637,7 @@ void loop() {
      playbackDirectionStart[1] = 65535;
      playbackDirectionStart[2] = 0;
      playbackDirectionStart[3] = 65535;
-     }
+     }   
 }
 
 ISR(TIMER1_OVF_vect) {
@@ -712,7 +718,32 @@ ISR(TIMER1_OVF_vect) {
 
   //Freeze Mode interupt implementation     
       if (freezeButton == BUTTON_ON){
-     
+       nSamplesPlayed+=3;
+      if (nSamplesPlayed >= nSamplesToPlay) {
+      // proceed to the next grain
+      nSamplesPlayed = 0;
+      if (reverseButton == BUTTON_ON){
+      grainAddress -= grainSize;
+      if(sample == 0 || sample == 2){
+       if (grainAddress >= 0) {
+        grainAddress = freezeAddressReset;
+      } 
+      }
+      if(sample == 1 || sample == 3){
+       if (grainAddress > 65535) {
+        grainAddress = freezeAddressReset;
+      } 
+      } 
+      }else{
+      grainAddress += grainSize;  
+      if (grainAddress < endAddress[sample]) {
+        grainAddress = freezeAddressReset;
+      }
+      }
+      address = grainAddress;
+      mix = signal;
+      return;
+    }
  }
  
      //prevents playback clipping when mixing passthrough with samples
