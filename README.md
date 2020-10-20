@@ -17,6 +17,8 @@ Current build requires an interface with 7 Buttons (connected as Digital Inputs)
 
 ![alt text](https://github.com/kreiff/Cosmic_Loop/blob/master/Hardware/CL_Prototype.jpg)
 
+[Video of the prototype unit in action!](https://www.instagram.com/p/BpxwfFFDZzV/)
+
 Additional Features in the Queue:
 - Playback envelope for samples
 - UX improvements
