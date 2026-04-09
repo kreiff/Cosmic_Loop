@@ -22,9 +22,12 @@ Current build requires an interface with 7 Buttons (connected as Digital Inputs)
 Additional Features in the Queue:
 - UX improvements
   - Latching, 1-shot, and momentary button response for sample playback.
-- Simultaneous Sample Playback / Sample Polyphony
 
 Additional notes:
 - If you're using the Audio Hacker shield from Nootropic Design and an Arudino Uno be aware that only 7 Digital pins and 6 Analog pins are available as inputs / outputs. Digital pin 7-13 are used by the shield to communicate with the ADC, DAC, and SRAM chips. If you're adding additional UX improvements be sure to make sure you're only working with digital pins 0-6. You can alternatively use a shift register to add additional digital inputs (See NooTropic's EX-Expander Shield as an example).
 - This project uses the TX and RX pins for specific functions. If you're using the Serial Print function to debug your code - you may get odd results / print-outs if the button you're debugging is connected to pins D0 or D1. 
 - As noted above only 7 digital pins are available as inputs / outputs, but you'll notice that there are 8 buttons identified in the wiring diagram - The input / passthrough mute function is hardwired and does not depend on the Arduino or any code to function. It simply grounds the input signal at the bypass switch preventing it from going to the output.
+
+FAQ:
+Q: When are you going to add simultaneous sample playback / sample polyphony?
+A: The hardware isn't sufficient to support simultaneous sample playback. All of the code has to execute within 62.5 µs - which is the cycle length of the ISR on this hardware. Given that the ADC, DAC, and SRAM chips are all sharing the same SPI bus and we're already splitting read and write duties between even and odd ISR cycles - single sample playback with a variety of effects is pretty much the upper limit of what the hardware is capable of.
