@@ -29,5 +29,5 @@ Additional notes:
 - As noted above only 7 digital pins are available as inputs / outputs, but you'll notice that there are 8 buttons identified in the wiring diagram - The input / passthrough mute function is hardwired and does not depend on the Arduino or any code to function. It simply grounds the input signal at the bypass switch preventing it from going to the output.
 
 FAQ:
-Q: When are you going to add simultaneous sample playback / sample polyphony?
-A: The hardware isn't sufficient to support simultaneous sample playback. All of the code has to execute within 62.5 µs - which is the cycle length of the ISR on this hardware. Given that the ADC, DAC, and SRAM chips are all sharing the same SPI bus and we're already splitting read and write duties between even and odd ISR cycles - single sample playback with a variety of effects is pretty much the upper limit of what the hardware is capable of.
+  Q: When are you going to add simultaneous sample playback / sample polyphony?
+  A: The hardware isn't sufficient to support simultaneous sample playback. All of the code has to execute within 62.5 µs - which is the cycle length of the ISR on this hardware. Given that the ADC, DAC, and SRAM chips are all sharing the same SPI bus and we're already splitting read and write duties between even and odd ISR cycles - single sample playback with a variety of effects is pretty much the upper limit of what the hardware is capable of.
