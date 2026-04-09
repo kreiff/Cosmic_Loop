@@ -30,4 +30,4 @@ Additional notes:
 
 FAQ:
 - Q: When are you going to add simultaneous sample playback / sample polyphony?
-  - A: The hardware isn't sufficient to support simultaneous sample playback. All of the code has to execute within 62.5 µs - which is the cycle length of the ISR on this hardware. Given that the ADC, DAC, and SRAM chips are all sharing the same SPI bus and we're already splitting read and write duties between even and odd ISR cycles - single sample playback with a variety of effects is pretty much the upper limit of what the hardware is capable of.
+- A: The hardware isn't sufficient to support simultaneous sample playback. All of the code has to execute within 62.5 µs - which is the cycle length of the ISR on this hardware. Given that the ADC, DAC, and SRAM chips are all sharing the same SPI bus and we're already splitting read and write duties between even and odd ISR cycles - single sample playback with a variety of effects is pretty much the upper limit of what the hardware is capable of.
