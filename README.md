@@ -20,10 +20,8 @@ Current build requires an interface with 7 Buttons (connected as Digital Inputs)
 ![alt text](https://github.com/kreiff/Cosmic_Loop/blob/master/Hardware/CL_Prototype.jpg)
 
 Additional Features in the Queue:
-- Playback envelope for samples
 - UX improvements
   - Latching, 1-shot, and momentary button response for sample playback.
-  - Three State effect options (Effect on Sample Only, Effect on Passthrough & Sample, Effect Off) - for filter, grain delay, etc.
 - Simultaneous Sample Playback / Sample Polyphony
 
 Additional notes:
